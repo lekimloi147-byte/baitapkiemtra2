@@ -36,7 +36,6 @@
         android:background="#FFFFFF"
         android:layout_marginBottom="32dp" />
 
-    <!-- Nút Chỉnh Sửa -->
     <Button
         android:id="@+id/btnSua"
         android:layout_width="match_parent"
@@ -45,8 +44,6 @@
         android:backgroundTint="#FF9800"
         android:textColor="#FFFFFF"
         android:layout_marginBottom="12dp" />
-
-    <!-- Nút Quay Lại -->
     <Button
         android:id="@+id/btnQuayLai"
         android:layout_width="match_parent"
@@ -54,5 +51,13 @@
         android:text="Quay Lai"
         android:backgroundTint="#757575"
         android:textColor="#FFFFFF" />
+    <Button
+        id="@+id/btnHoanThanh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Danh Dau Hoan Thanh"
+        android:backgroundTint="#2E7D32"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
 
 </LinearLayout>

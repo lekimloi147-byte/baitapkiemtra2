@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class ChiTietCongViecActivity : AppCompatActivity() {
     private lateinit var tvHienThiTen: TextView
     private lateinit var tvHienThiMoTa: TextView
+    private lateinit var btnHoanThanh: Button
     private lateinit var btnSua: Button
     private lateinit var btnQuayLai: Button
 
@@ -24,12 +25,19 @@ class ChiTietCongViecActivity : AppCompatActivity() {
 
         tvHienThiTen = findViewById(R.id.tvHienThiTen)
         tvHienThiMoTa = findViewById(R.id.tvHienThiMoTa)
+        btnHoanThanh = findViewById(R.id.btnHoanThanh)
         btnSua = findViewById(R.id.btnSua)
         btnQuayLai = findViewById(R.id.btnQuayLai)
+
         congViecHienTai = intent.getSerializableExtra("EXTRA_CONG_VIEC") as? CongViec
-            ?: CongViec("", "", false)
+            ?: CongViec(tenCongViec = "", moTa = "", trangThai = false)
 
         hienThiThongTin()
+        btnHoanThanh.setOnClickListener {
+            congViecHienTai.trangThai = true
+            hienThiThongTin() // Cập nhật lại giao diện hiển thị trạng thái mới
+        }
+
         chinhSuaLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
@@ -41,6 +49,7 @@ class ChiTietCongViecActivity : AppCompatActivity() {
                 }
             }
         }
+
         btnSua.setOnClickListener {
             val intent = Intent(this, ChinhSuaCongViecActivity::class.java).apply {
                 putExtra("EXTRA_CONG_VIEC_CU", congViecHienTai)
@@ -48,13 +57,11 @@ class ChiTietCongViecActivity : AppCompatActivity() {
             chinhSuaLauncher.launch(intent)
         }
 
-        btnQuayLai.setOnClickListener {
-            finish()
-        }
+        btnQuayLai.setOnClickListener { finish() }
     }
 
     private fun hienThiThongTin() {
-        tvHienThiTen.text = "Ten cong viec: ${congViecHienTai.tenCongViec}"
+        tvHienThiTen.text = "Ma CV: ${congViecHienTai.maCongViec}"
         tvHienThiMoTa.text = congViecHienTai.layThongTinChiTiet()
     }
 }
