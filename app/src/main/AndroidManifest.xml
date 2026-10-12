@@ -11,8 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Baikiemtra2">
-
-        <!-- MainActivity (Màn hình chính khởi chạy ứng dụng) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -23,9 +21,13 @@
             </intent-filter>
         </activity>
 
-        <!-- ChiTietCongViecActivity (Màn hình chi tiết, cấu hình exported=false nội bộ) -->
         <activity
             android:name=".ChiTietCongViecActivity"
+            android:exported="false" />
+
+        <!-- Khai bao man hinh chinh sua cong viec cho Cau 3 -->
+        <activity
+            android:name=".ChinhSuaCongViecActivity"
             android:exported="false" />
 
     </application>
