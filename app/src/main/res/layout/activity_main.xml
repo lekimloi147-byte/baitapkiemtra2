@@ -1,19 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:background="#F5F5F5">
+
+    <!-- Thong tin sinh vien -->
+    <TextView
+        android:id="@+id/tvThongTinSV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ho ten: Nguyen Van A - MSSV: 2250512000 - Lop HP: LTDD"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:padding="10dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="QUAN LY CONG VIEC"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        android:layout_marginBottom="20dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- O nhap ten cong viec -->
+    <EditText
+        android:id="@+id/edtTenCongViec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhap ten cong viec"
+        android:inputType="text"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/editbox_background_normal" />
+
+    <!-- O nhap mo ta cong viec -->
+    <EditText
+        android:id="@+id/edtMoTa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhap mo ta chi tiet"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"
+        android:background="@android:drawable/editbox_background_normal" />
+
+    <!-- Nut Tao cong viec -->
+    <Button
+        android:id="@+id/btnTaoCongViec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tao Cong Viec"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Nut Xem danh sach cong viec -->
+    <Button
+        android:id="@+id/btnXemDanhSach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xem Danh Sach Cong Viec"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
