@@ -34,26 +34,11 @@
         android:padding="12dp"
         android:background="#FFFFFF"
         android:layout_marginBottom="16dp" />
-    <CheckBox
-        android:id="@+id/chkTrangThai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Da hoan thanh cong viec"
-        android:textSize="16sp"
-        android:textColor="#333333"
-        android:layout_marginBottom="24dp" />
 
-    <Button
-        android:id="@+id/btnLuu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Luu Thay Doi"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mức độ ưu tiên:"
+        android:text="Muc do uu tien:"
         android:textSize="14sp"
         android:textColor="#333333"
         android:layout_marginBottom="4dp" />
@@ -64,6 +49,34 @@
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:background="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/chkTrangThai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Da hoan thanh cong viec"
+        android:textSize="16sp"
+        android:textColor="#333333"
         android:layout_marginBottom="24dp" />
+
+    <!-- Nút Lưu Thay Đổi -->
+    <Button
+        android:id="@+id/btnLuu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Luu Thay Doi"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Nút Hủy (Đề bổ sung 3) -->
+    <Button
+        android:id="@+id/btnHuy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Huy"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
