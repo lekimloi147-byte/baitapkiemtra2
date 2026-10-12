@@ -15,12 +15,8 @@ class ChiTietCongViecActivity : AppCompatActivity() {
     private lateinit var btnSua: Button
     private lateinit var btnQuayLai: Button
 
-    // Khai bao ActivityResultLauncher dung chuan Activity Result API
     private lateinit var chinhSuaLauncher: ActivityResultLauncher<Intent>
-
-    // Bien luu tru thong tin hien tai
-    private var tenHienTai: String = ""
-    private var moTaHienTai: String = ""
+    private lateinit var congViecHienTai: CongViec
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,32 +26,35 @@ class ChiTietCongViecActivity : AppCompatActivity() {
         tvHienThiMoTa = findViewById(R.id.tvHienThiMoTa)
         btnSua = findViewById(R.id.btnSua)
         btnQuayLai = findViewById(R.id.btnQuayLai)
-        tenHienTai = intent.getStringExtra("EXTRA_TEN") ?: ""
-        moTaHienTai = intent.getStringExtra("EXTRA_MOTA") ?: ""
+        congViecHienTai = intent.getSerializableExtra("EXTRA_CONG_VIEC") as? CongViec
+            ?: CongViec("", "", false)
 
-        tvHienThiTen.text = "Ten cong viec: $tenHienTai"
-        tvHienThiMoTa.text = "Mo ta: $moTaHienTai"
+        hienThiThongTin()
+
         chinhSuaLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val data = result.data
-                tenHienTai = data?.getStringExtra("EXTRA_TEN_MOI") ?: tenHienTai
-                moTaHienTai = data?.getStringExtra("EXTRA_MOTA_MOI") ?: moTaHienTai
-                tvHienThiTen.text = "Ten cong viec: $tenHienTai"
-                tvHienThiMoTa.text = "Mo ta: $moTaHienTai"
+                val cvMoi = result.data?.getSerializableExtra("EXTRA_CONG_VIEC_MOI") as? CongViec
+                if (cvMoi != null) {
+                    congViecHienTai = cvMoi
+                    hienThiThongTin()
+                }
             }
         }
+
         btnSua.setOnClickListener {
             val intent = Intent(this, ChinhSuaCongViecActivity::class.java).apply {
-                putExtra("EXTRA_TEN_CU", tenHienTai)
-                putExtra("EXTRA_MOTA_CU", moTaHienTai)
+                putExtra("EXTRA_CONG_VIEC_CU", congViecHienTai)
             }
             chinhSuaLauncher.launch(intent)
         }
 
-        btnQuayLai.setOnClickListener {
-            finish()
-        }
+        btnQuayLai.setOnClickListener { finish() }
+    }
+
+    private fun hienThiThongTin() {
+        tvHienThiTen.text = "Ten cong viec: ${congViecHienTai.tenCongViec}"
+        tvHienThiMoTa.text = congViecHienTai.layThongTinChiTiet()
     }
 }

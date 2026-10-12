@@ -11,6 +11,7 @@ class ChinhSuaCongViecActivity : AppCompatActivity() {
     private lateinit var edtSuaTen: EditText
     private lateinit var edtSuaMoTa: EditText
     private lateinit var btnLuu: Button
+    private lateinit var congViecNhan: CongViec
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,18 +20,19 @@ class ChinhSuaCongViecActivity : AppCompatActivity() {
         edtSuaTen = findViewById(R.id.edtSuaTen)
         edtSuaMoTa = findViewById(R.id.edtSuaMoTa)
         btnLuu = findViewById(R.id.btnLuu)
-        val tenCu = intent.getStringExtra("EXTRA_TEN_CU") ?: ""
-        val moTaCu = intent.getStringExtra("EXTRA_MOTA_CU") ?: ""
 
-        edtSuaTen.setText(tenCu)
-        edtSuaMoTa.setText(moTaCu)
+        congViecNhan = intent.getSerializableExtra("EXTRA_CONG_VIEC_CU") as? CongViec
+            ?: CongViec("", "", false)
+
+        edtSuaTen.setText(congViecNhan.tenCongViec)
+        edtSuaMoTa.setText(congViecNhan.moTa)
+
         btnLuu.setOnClickListener {
-            val tenMoi = edtSuaTen.text.toString().trim()
-            val moTaMoi = edtSuaMoTa.text.toString().trim()
+            congViecNhan.tenCongViec = edtSuaTen.text.toString().trim()
+            congViecNhan.moTa = edtSuaMoTa.text.toString().trim()
 
             val resultIntent = Intent().apply {
-                putExtra("EXTRA_TEN_MOI", tenMoi)
-                putExtra("EXTRA_MOTA_MOI", moTaMoi)
+                putExtra("EXTRA_CONG_VIEC_MOI", congViecNhan)
             }
             setResult(Activity.RESULT_OK, resultIntent)
             finish()
