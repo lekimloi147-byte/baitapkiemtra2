@@ -34,8 +34,6 @@
         android:padding="12dp"
         android:background="#FFFFFF"
         android:layout_marginBottom="16dp" />
-
-    <!-- Thêm CheckBox để đánh dấu trạng thái hoàn thành (Yêu cầu Câu 5) -->
     <CheckBox
         android:id="@+id/chkTrangThai"
         android:layout_width="match_parent"
@@ -52,5 +50,20 @@
         android:text="Luu Thay Doi"
         android:backgroundTint="#4CAF50"
         android:textColor="#FFFFFF" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mức độ ưu tiên:"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/spinnerUuTien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="24dp" />
 
 </LinearLayout>
