@@ -33,6 +33,16 @@
         android:lines="3"
         android:padding="12dp"
         android:background="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Thêm CheckBox để đánh dấu trạng thái hoàn thành (Yêu cầu Câu 5) -->
+    <CheckBox
+        android:id="@+id/chkTrangThai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Da hoan thanh cong viec"
+        android:textSize="16sp"
+        android:textColor="#333333"
         android:layout_marginBottom="24dp" />
 
     <Button
