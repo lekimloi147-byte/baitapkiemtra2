@@ -36,6 +36,17 @@
         android:background="#FFFFFF"
         android:layout_marginBottom="32dp" />
 
+    <!-- Nút Chỉnh Sửa -->
+    <Button
+        android:id="@+id/btnSua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chinh Sua"
+        android:backgroundTint="#FF9800"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Nút Quay Lại -->
     <Button
         android:id="@+id/btnQuayLai"
         android:layout_width="match_parent"
