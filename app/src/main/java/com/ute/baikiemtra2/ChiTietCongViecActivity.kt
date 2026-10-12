@@ -30,7 +30,6 @@ class ChiTietCongViecActivity : AppCompatActivity() {
             ?: CongViec("", "", false)
 
         hienThiThongTin()
-
         chinhSuaLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
@@ -42,7 +41,6 @@ class ChiTietCongViecActivity : AppCompatActivity() {
                 }
             }
         }
-
         btnSua.setOnClickListener {
             val intent = Intent(this, ChinhSuaCongViecActivity::class.java).apply {
                 putExtra("EXTRA_CONG_VIEC_CU", congViecHienTai)
@@ -50,7 +48,9 @@ class ChiTietCongViecActivity : AppCompatActivity() {
             chinhSuaLauncher.launch(intent)
         }
 
-        btnQuayLai.setOnClickListener { finish() }
+        btnQuayLai.setOnClickListener {
+            finish()
+        }
     }
 
     private fun hienThiThongTin() {
